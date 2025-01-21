@@ -6,7 +6,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 
 export const routes: Routes = [
     {path: '', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: RegisterComponent },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'admin', component: AdminComponent },
     { path: '**', redirectTo: '' }
