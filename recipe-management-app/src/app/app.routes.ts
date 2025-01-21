@@ -4,7 +4,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { AddRecipeComponent } from './components/add-recipe/add-recipe.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
-export const appRoutes: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipe/:id', component: RecipeDetailsComponent },
   { path: 'add-recipe', component: AddRecipeComponent },
