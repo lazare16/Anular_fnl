@@ -1,21 +1,21 @@
-import { Component, OnInit} from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-login',
   standalone: true,
   imports: [],
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'] // Fixed the plural issue
 })
-export class DashboardComponent implements OnInit{
-  products: any[] = [];
+export class LoginComponent {
+  constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(private http: HttpClient) {}
-
-  ngOnInit() {
-    this.http.get<any[]>('https://api.escuelajs.co/api/v1/products').subscribe((data) => {
-      this.products = data;
+  onSubmit(form: any) {
+    const credentials = form.value; // Retrieve form values
+    this.authService.login(credentials).subscribe(() => {
+      this.router.navigate(['/dashboard']); // Redirect after login
     });
   }
 }
